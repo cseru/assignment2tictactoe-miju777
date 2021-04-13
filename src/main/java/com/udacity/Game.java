@@ -186,7 +186,7 @@ public class Game {
 
 
     return result;
-
+    }
     /**
      * Main function
      * @param args command line arguments
