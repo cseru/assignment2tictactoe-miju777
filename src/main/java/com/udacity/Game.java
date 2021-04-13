@@ -149,10 +149,43 @@ public class Game {
      * @return String indicating the outcome of the game: "X wins" or "O wins" or "Tie" or "None"
      */
     public String checkGameWinner(char [][]grid){
-        String result = "None";
-        //Student code goes here ...
-        return result;
+    String result = "None";
+    Character point [] = {'x','o'};
+    String [] messege = {"X wins", "O wins"};
+
+    for(int i = 0; i < point.length; ++i) {
+
+        //for diagonal
+        if (grid[0][0] == point[i] && grid[1][1] == point[i] && grid[2][2] == point[i])
+            return messege[i];
+        if (grid[0][2] == point[i] && grid[1][1] == point[i] && grid[2][0] == point[i])
+            return messege[i];
+
+        for(int col = 0;col < grid.length; ++col) {
+            // for columns
+            if (grid[col][0] == point[i] && grid[col][1] == point[i] && grid[col][2] == point[i])
+                return messege[i];
+
+            // for rows
+            if (grid[0][col] == point[i] && grid[1][col] == point[i] && grid[2][col] == point[i])
+                return messege[i];
+
+        }
+
     }
+    // for tie
+    int total = 0;
+    for(int i = 0; i < grid.length; ++i) {
+        for(int j=0;j<grid.length;++j) {
+            if(!(grid[i][j] == '-'))
+                total ++;
+        }
+    }
+    if(total == grid.length * grid.length)
+        return "Tie";
+
+
+    return result;
 
     /**
      * Main function
