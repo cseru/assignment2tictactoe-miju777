@@ -153,7 +153,7 @@ public class Game {
     Character point [] = {'x','o'};
     String [] messege = {"X wins", "O wins"};
 
-    for(int i = 0; i < point.length; ++i) {
+    for(int i = 0; i < point.length; i++) {
 
         //for diagonal
         if (grid[0][0] == point[i] && grid[1][1] == point[i] && grid[2][2] == point[i])
@@ -161,7 +161,7 @@ public class Game {
         if (grid[0][2] == point[i] && grid[1][1] == point[i] && grid[2][0] == point[i])
             return messege[i];
 
-        for(int col = 0;col < grid.length; ++col) {
+        for(int col = 0;col < grid.length; col++) {
             // for columns
             if (grid[col][0] == point[i] && grid[col][1] == point[i] && grid[col][2] == point[i])
                 return messege[i];
@@ -175,8 +175,8 @@ public class Game {
     }
     // for tie
     int total = 0;
-    for(int i = 0; i < grid.length; ++i) {
-        for(int j=0;j<grid.length;++j) {
+    for(int i = 0; i < grid.length; i++) {
+        for(int j=0;j<grid.length; j++) {
             if(!(grid[i][j] == '-'))
                 total ++;
         }
